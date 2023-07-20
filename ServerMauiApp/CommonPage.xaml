@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ServerMauiApp.CommonPage"
+             Title="CommpnPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <ListView x:Name="peopleList" BackgroundColor="DarkGreen">
+            <ListView.Header>
+                <Grid BackgroundColor="#ddd">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Имя" FontSize="16" Grid.Column="0" />
+                    <Label Text="Сообщение" FontSize="16" Grid.Column="1" />
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" FontSize="16" Grid.Column="0" />
+                                <Label x:Name="names" Text="{Binding Text}" FontSize="15" Grid.Column="1" BackgroundColor="Red" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="peopleListt" BackgroundColor="Coral" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                              
+                                <Label x:Name="names" Text="{Binding Text}" FontSize="15" Grid.Column="1" BackgroundColor="Red" />
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Entry x:Name="EnterEntry"  Placeholder = "Введите Email" FontFamily="Helvetica"
+                FontSize="22" MaxLength ="20" Keyboard="Chat" />
+        <Button Clicked="LabelTextMessangerClick"/>
+    </VerticalStackLayout>
+</ContentPage>
